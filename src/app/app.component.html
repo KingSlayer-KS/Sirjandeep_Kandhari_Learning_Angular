@@ -3,10 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sirjan</title>
+  <title>Ecom</title>
 </head>
 <body>
-    <h1>Comp prog</h1>
-    <p>{{ name }} is in {{ sem }}</p>
+    <h1>Ecom</h1>
+    <p>Ecom by {{ name }} is in  semester {{ sem }} in st clair college</p>
+
+    <div >
+      @for (item of items; track item){
+      <h2>{{ item.name }}</h2>
+      <p>{{ item.description }}</p>
+      <p>Price: ${{ item.price }}</p>
+      @if (item.inStock) {
+        <p>In Stock</p>
+        } 
+        @else {
+        <p>Out of Stock</p>
+        }
+      <p>Category: {{ item.category }}</p>
+      }
+    </div>
 </body>
 </html>
