@@ -6,22 +6,30 @@
   <title>Ecom</title>
 </head>
 <body>
-    <h1>Ecom</h1>
-    <p>Ecom by {{ name }} is in  semester {{ sem }} in st clair college</p>
-
-    <div >
+  <div class="p-4">
+    <div class="text-center">
+  <h1 class="text-3xl font-bold mb-4">Ecom</h1>
+  <p class="text-lg mb-8">
+    Ecom by {{ name }} is in semester {{ sem }} at St. Clair College
+  </p>
+</div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       @for (item of items; track item){
-      <h2>{{ item.name }}</h2>
-      <p>{{ item.description }}</p>
-      <p>Price: ${{ item.price }}</p>
+        <div class="border p-4 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-2">{{ item.name }}</h2>
+        <p class="text-gray-700 mb-2">{{ item.description }}</p>
+        <p class="text-lg font-bold mb-2">Price: ${{ item.price }}</p>
       @if (item.inStock) {
-        <p>In Stock</p>
+        <p class="text-green-500">In Stock</p>
         } 
         @else {
-        <p>Out of Stock</p>
+        <p class="text-red-500" >Out of Stock</p>
         }
-      <p>Category: {{ item.category }}</p>
+        <p class="text-sm text-gray-500">Category: {{ item.category }}</p>
+      </div>
       }
     </div>
+
+  </div>
 </body>
 </html>
