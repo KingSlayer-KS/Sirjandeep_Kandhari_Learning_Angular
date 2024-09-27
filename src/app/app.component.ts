@@ -11,6 +11,7 @@ import { ContentListComponent } from "./content-list/content-list.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  [x: string]: any;
 
   items: Item[] = [
     { id: 1, name: 'Macbook', description: 'High-end performece laptop apple', price: 1500, inStock: true, category: 'Electronics' },

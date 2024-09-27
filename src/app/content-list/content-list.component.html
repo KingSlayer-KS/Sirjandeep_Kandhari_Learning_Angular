@@ -1,5 +1,6 @@
-
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 @for (item of contentList; track item){
-    <app-content-list-item [contentItem]=item></app-content-list-item>
+    <app-content-list-item [contentItem]=item  class="{'bg-pink-300': i % 2 === 0, 'bg-teal-300': i % 2 !== 0}"></app-content-list-item>
 }
 
+</div>
