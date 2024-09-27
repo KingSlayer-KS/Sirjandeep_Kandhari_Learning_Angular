@@ -8,5 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './content-list-item.component.css'
 })
 export class ContentListItemComponent {
-  @Input() contentItem: { title: string; description: string; } | undefined;
+  @Input() contentItem!: { name: string; description: string; };
+
+  
 }
