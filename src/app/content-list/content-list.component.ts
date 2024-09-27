@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Item } from '../models/item.model';
+import { ContentListItemComponent } from "../content-list-item/content-list-item.component";
 
 @Component({
   selector: 'app-content-list',
   standalone: true,
-  imports: [],
+  imports: [ContentListItemComponent],
   templateUrl: './content-list.component.html',
   styleUrl: './content-list.component.css'
 })
