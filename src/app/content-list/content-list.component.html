@@ -1,6 +1,16 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-@for (item of contentList; track item){
-    <app-content-list-item [contentItem]=item  class="{'bg-pink-300': i % 2 === 0, 'bg-teal-300': i % 2 !== 0}"></app-content-list-item>
-}
+    @for (item of contentList; track item){
+    @if (item.id%2==0) {
+    <div class="border bg-red-100 p-4 rounded-lg shadow-md">
+        <app-content-list-item [contentItem]=item></app-content-list-item>
+    </div>
+    }
+    @else {
+    <div class="border bg-green-100 p-4 rounded-lg shadow-md">
+        <app-content-list-item [contentItem]=item></app-content-list-item>
+    </div>
+    }
+
+    }
 
 </div>
