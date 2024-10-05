@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Item } from '../models/item.model';
 
 @Component({
   selector: 'app-content-list-item',
@@ -8,7 +9,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './content-list-item.component.css'
 })
 export class ContentListItemComponent {
-  @Input() contentItem!: { name: string; description: string; };
+  @Input() contentItem!: Item | undefined;
 
   
 }
