@@ -8,7 +8,7 @@ import { ModifyListComponent } from './app/modify-list/modify-list.component';
 ModifyListComponent
 
 const routes: Routes = [
-  {path:'', redirectTo: '/product', pathMatch: 'full'},
+  {path:'', component: ContentListComponent},
   { path: 'product', component: ContentListComponent },
   { path: 'modify/:id', component: ModifyListComponent },
   { path: '**', component: ProductNotFoundComponent },

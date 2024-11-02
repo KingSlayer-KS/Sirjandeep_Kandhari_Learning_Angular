@@ -1,15 +1,21 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
+    @if(contentList.length==0){
+        <p class="text-center text-red-500 font-semibold text-lg p-4 bg-red-100 rounded-md shadow-md">
+            <a href="/">Product not found! <u>GO Home</u>
+              </a>
+            </p>
+    }
 
     @for (item of contentList; track item){
+       
     @if (item.id%2==0) {
     <div class="border bg-red-100 p-4 rounded-lg shadow-md">
-        <app-content-list-item [contentItem]=item></app-content-list-item>
+        <app-content-list-item [contentItem]=item (delete)="onDelete($event)"></app-content-list-item>
     </div>
     }
     @else {
     <div class="border bg-green-100 p-4 rounded-lg shadow-md">
-        <app-content-list-item [contentItem]=item></app-content-list-item>
+        <app-content-list-item [contentItem]=item (delete)="onDelete($event)"></app-content-list-item>
     </div>
     }
 

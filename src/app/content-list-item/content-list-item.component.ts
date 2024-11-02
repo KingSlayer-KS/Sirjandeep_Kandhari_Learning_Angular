@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from '../models/item.model';
 import { RouterLink } from '@angular/router';
 
@@ -10,5 +10,12 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./content-list-item.component.css']
 })
 export class ContentListItemComponent {
-  @Input() contentItem?: Item;  
+  @Input() contentItem?: Item;
+  @Output() delete = new EventEmitter<number>();
+
+  deleteItem(): void {
+    if (this.contentItem?.id) {
+      this.delete.emit(this.contentItem.id);
+    }
+  }
 }

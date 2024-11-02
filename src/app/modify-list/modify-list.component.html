@@ -1,57 +1,49 @@
-<div class="max-w-lg mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-    <h2 class="text-2xl font-semibold mb-6 text-center text-gray-800">Modify Product</h2>
-  
-    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="space-y-4">
-      <!-- ID Field (Disabled) -->
-      <div class="form-group">
-        <label for="id" class="block text-gray-700 font-medium mb-2">ID</label>
-        <input type="number" id="id" formControlName="id" class="w-full border border-gray-300 p-2 rounded-md bg-gray-100" />
-      </div>
-  
-      <!-- Name Field -->
-      <div class="form-group">
-        <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-        <input type="text" id="name" formControlName="name" class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-500" />
-      </div>
-  
-      <!-- Description Field -->
-      <div class="form-group">
-        <label for="description" class="block text-gray-700 font-medium mb-2">Description</label>
-        <textarea id="description" formControlName="description" rows="3" class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-500"></textarea>
-      </div>
-  
-      <!-- Price Field -->
-      <div class="form-group">
-        <label for="price" class="block text-gray-700 font-medium mb-2">Price</label>
-        <input type="number" id="price" formControlName="price" class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-500" />
-      </div>
-  
-      <!-- Category Field -->
-      <div class="form-group">
-        <label for="category" class="block text-gray-700 font-medium mb-2">Category</label>
-        <input type="text" id="category" formControlName="category" class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-500" />
-      </div>
-  
-      <!-- In Stock Checkbox -->
-      <div class="form-group flex items-center">
-        <label for="inStock" class="text-gray-700 font-medium mr-2">In Stock</label>
-        <input type="checkbox" id="inStock" formControlName="inStock" class="rounded text-blue-600 focus:ring-blue-500" />
-      </div>
-  
-      <!-- Submit Button -->
-      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300 font-semibold">
-        Save Changes
-      </button>
-  
-      <!-- Delete Button -->
-      <button type="button" (click)="onDelete()" class="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition duration-300 font-semibold mt-2">
-        Delete Product
-      </button>
-  
-      <!-- Back Button -->
-      <button type="button" (click)="navigateToProductList()" class="w-full bg-gray-500 text-white py-2 rounded-md hover:bg-gray-600 transition duration-300 font-semibold mt-2">
-        Back to List
-      </button>
-    </form>
+<form [formGroup]="itemForm" (ngSubmit)="onSubmit()" class="space-y-4">
+  <!-- Display error message -->
+  <div *ngIf="errorMessage" class="text-red-500">{{ errorMessage }}</div>
+
+  <!-- ID Field -->
+  <div>
+    <label for="id" class="block text-gray-700 font-medium mb-2">ID</label>
+    <input type="number" id="id" formControlName="id" class="w-full border border-gray-300 p-2 rounded-md" />
+    <div *ngIf="itemForm.get('id')?.invalid && itemForm.get('id')?.touched" class="text-red-500">
+      ID is required and must be a positive number.
+    </div>
   </div>
-  
+
+  <!-- Name Field -->
+  <div>
+    <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+    <input type="text" id="name" formControlName="name" class="w-full border border-gray-300 p-2 rounded-md" />
+    <div *ngIf="itemForm.get('name')?.invalid && itemForm.get('name')?.touched" class="text-red-500">
+      Name is required and must not contain special characters.
+    </div>
+  </div>
+
+  <!-- Description Field -->
+  <div>
+    <label for="description" class="block text-gray-700 font-medium mb-2">Description</label>
+    <textarea id="description" formControlName="description" rows="3" class="w-full border border-gray-300 p-2 rounded-md"></textarea>
+  </div>
+
+  <!-- Price Field -->
+  <div>
+    <label for="price" class="block text-gray-700 font-medium mb-2">Price</label>
+    <input type="number" id="price" formControlName="price" class="w-full border border-gray-300 p-2 rounded-md" />
+  </div>
+
+  <!-- Category Field -->
+  <div>
+    <label for="category" class="block text-gray-700 font-medium mb-2">Category</label>
+    <input type="text" id="category" formControlName="category" class="w-full border border-gray-300 p-2 rounded-md" />
+  </div>
+
+  <!-- In Stock Checkbox -->
+  <div class="flex items-center">
+    <label for="inStock" class="text-gray-700 font-medium mr-2">In Stock</label>
+    <input type="checkbox" id="inStock" formControlName="inStock" class="rounded" />
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded mt-4">Save</button>
+</form>
