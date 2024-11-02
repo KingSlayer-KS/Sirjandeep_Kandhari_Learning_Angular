@@ -8,10 +8,10 @@ import { ModifyListComponent } from './app/modify-list/modify-list.component';
 ModifyListComponent
 
 const routes: Routes = [
-  // {path:'', pathMatch: 'full'}, 
-  { path: '', component: ContentListComponent },
+  {path:'', redirectTo: '/product', pathMatch: 'full'},
+  { path: 'product', component: ContentListComponent },
+  { path: 'modify', component: ModifyListComponent },
   { path: '**', component: ProductNotFoundComponent },
-  { path: 'modify', component: ModifyListComponent }
 ];
 bootstrapApplication(AppComponent, {
   providers: [provideRouter(routes)]

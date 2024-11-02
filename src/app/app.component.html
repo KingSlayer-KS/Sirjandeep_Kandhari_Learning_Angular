@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ecom</title>
-</head>
-<body>
-  <div class="p-4">
-    <div class="text-center">
-  <h1 class="text-3xl font-bold mb-4">Ecom</h1>
-  <p class="text-lg mb-8">
-    Ecom by {{ name }} is in semester {{ sem }} at St. Clair College
-  </p>
-</div> 
-    <app-content-list-item
-  *ngIf="selectedItem"
-  [contentItem]="selectedItem">
-</app-content-list-item>
-    <app-content-list></app-content-list>
+<!-- Future Nav bar-->
+<div class="nav-bar bg-blue-600 text-white p-4 shadow-lg">
+  <nav class="flex space-x-4">
+    <a routerLink="/" routerLinkActive="text-blue-300 font-bold" class="hover:text-blue-300">
+      Product List
+    </a>
+    <a routerLink="/modify" routerLinkActive="text-blue-300 font-bold" class="hover:text-blue-300">
+      Modify Product
+    </a>
+  </nav>
+</div>
 
+<div class="app-container p-6 max-w-3xl mx-auto text-center">
+  <h1 class="text-3xl font-extrabold mb-4">{{ name }}</h1>
 
-  </div>
-</body>
-</html>
+  <router-outlet></router-outlet>
+</div>
