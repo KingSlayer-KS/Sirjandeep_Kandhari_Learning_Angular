@@ -10,7 +10,7 @@ ModifyListComponent
 const routes: Routes = [
   {path:'', redirectTo: '/product', pathMatch: 'full'},
   { path: 'product', component: ContentListComponent },
-  { path: 'modify', component: ModifyListComponent },
+  { path: 'modify/:id', component: ModifyListComponent },
   { path: '**', component: ProductNotFoundComponent },
 ];
 bootstrapApplication(AppComponent, {

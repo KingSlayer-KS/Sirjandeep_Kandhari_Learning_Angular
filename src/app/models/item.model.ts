@@ -5,4 +5,5 @@ export interface Item {
     price: number;
     inStock?: boolean;  
     category: string;
+    img?:string;
   }
