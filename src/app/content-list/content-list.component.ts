@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core'; // Import OnInit to use lifecycle hooks
+import { Component, OnInit } from '@angular/core'; 
 import { Item } from '../models/item.model';
-import { ContentService } from '../services/content-list-service.service';  // Import ContentService
+import { ContentService } from '../services/content-list-service.service';  
 import { ContentListItemComponent } from "../content-list-item/content-list-item.component";
 
 @Component({
