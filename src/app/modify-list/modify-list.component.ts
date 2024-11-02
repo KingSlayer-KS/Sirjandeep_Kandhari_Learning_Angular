@@ -3,14 +3,13 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { ContentService } from '../services/content-list-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Item } from '../models/item.model';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-modify',
   standalone: true,
   imports: [
     FormsModule,
-    NgIf,
+
     ReactiveFormsModule
   ],
   templateUrl: './modify-list.component.html',
