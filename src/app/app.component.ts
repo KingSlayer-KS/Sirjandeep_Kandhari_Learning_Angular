@@ -5,11 +5,12 @@ import { Item } from './models/item.model';
 import { ContentListComponent } from './content-list/content-list.component';
 import { ContentListItemComponent } from './content-list-item/content-list-item.component'; 
 import { ContentService } from './services/content-list-service.service'; 
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule,ContentListComponent, ContentListItemComponent],
+  imports: [RouterOutlet, CommonModule,ContentListComponent, ContentListItemComponent,ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
