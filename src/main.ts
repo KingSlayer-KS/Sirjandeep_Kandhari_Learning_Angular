@@ -6,7 +6,7 @@ import {ContentListComponent} from "./app/content-list/content-list.component";
 
 
 const routes: Routes = [
-  {path:'', redirectTo: '/product', pathMatch: 'full'}, //default route
+  {path:'', redirectTo: '/product', pathMatch: 'full'}, 
   { path: 'product', component: ContentListComponent },
 ];
 bootstrapApplication(AppComponent, {
