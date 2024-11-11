@@ -1,56 +1,39 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Item } from '../models/item.model';
-import { contentList } from '../data/items'; // Importing mock data
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContentService {
 
+  private apiUrl = 'api/items';  // Points to the InMemoryDataService API
+
+  constructor(private http: HttpClient) {}
+
   // Retrieve all items
   getContentList(): Observable<Item[]> {
-    return of(contentList);
+    return this.http.get<Item[]>(this.apiUrl);
   }
 
   // Retrieve a specific item by ID
   getContentById(id: number): Observable<Item | undefined> {
-    const foundItem = contentList.find(item => item.id === id);
-    return of(foundItem);
+    return this.http.get<Item | undefined>(`${this.apiUrl}/${id}`);
   }
 
-  // Add a new item with unique ID check
-  addContent(newItem: Item): Observable<Item[]> {
-    if (!this.isUniqueId(newItem.id)) {
-      return throwError(() => new Error('ID must be unique'));
-    }
-    contentList.push(newItem);
-    return of(contentList);
+  // Add a new item
+  addContent(newItem: Item): Observable<Item> {
+    return this.http.post<Item>(this.apiUrl, newItem);
   }
 
   // Update an existing item
-  updateContent(updatedItem: Item): Observable<Item[]> {
-    const index = contentList.findIndex(item => item.id === updatedItem.id);
-    if (index !== -1) {
-      contentList[index] = { ...contentList[index], ...updatedItem };
-    } else {
-      return throwError(() => new Error('Item not found'));
-    }
-    return of(contentList);
+  updateContent(updatedItem: Item): Observable<Item> {
+    return this.http.put<Item>(`${this.apiUrl}/${updatedItem.id}`, updatedItem);
   }
 
   // Delete an item by ID
-  deleteContent(id: number): Observable<Item | undefined> {
-    const index = contentList.findIndex(item => item.id === id);
-    if (index !== -1) {
-      const removedItem = contentList.splice(index, 1)[0];
-      return of(removedItem);
-    }
-    return of(undefined);
-  }
-
-  // Helper method to ensure ID uniqueness
-  private isUniqueId(id: number): boolean {
-    return !contentList.some(item => item.id === id);
+  deleteContent(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
