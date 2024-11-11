@@ -6,14 +6,22 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { ContentListItemComponent } from './content-list-item/content-list-item.component'; 
 import { ContentService } from './services/content-list-service.service'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule,ContentListComponent, ContentListItemComponent,ReactiveFormsModule],
+  imports: [RouterOutlet, HttpClientModule,CommonModule,ContentListComponent, ContentListItemComponent,ReactiveFormsModule],
+  providers: [
+   
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   name: string = 'Sirjan';
   sem: number = 3;
@@ -22,8 +30,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     const itemId = 1; 
-    this.contentService.getContentById(itemId).subscribe(item => {
-      this.selectedItem = item;  
-    });
+    // this.contentService.getContentById(itemId).subscribe(item => {
+    //   this.selectedItem = item;  
+    // });
   }
 }
+

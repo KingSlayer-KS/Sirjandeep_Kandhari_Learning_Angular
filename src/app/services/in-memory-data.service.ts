@@ -6,8 +6,8 @@ import { Item } from '../models/item.model';
   providedIn: 'root'
 })
 export class InMemoryDataService implements InMemoryDbService {
-  createDb() {
-    const contentList: Item[] = [
+  createDb():{products:Item[]} {
+    const products: Item[] = [
       { id: 1, name: 'Macbook', description: 'High-end performece laptop apple', price: 1500, inStock: true, category: 'Electronics',img:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.hjV8H8ddOWZ4DCsFDfvMzgHaE8%26pid%3DApi&f=1&ipt=de7493a5aeb40508dbd2c65785d0c9f40abdbddf5d15eea13bbb48433d32856d&ipo=images", },
       { id: 2, name: 'iphone', description: 'Latest model smartphone apple', price: 1000, category: 'Electronics',img:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uHaqRdiMzWSMCR2LzsmhtQHaEZ%26pid%3DApi&f=1&ipt=e228d45eafd08f05dfd60a9e5e6f9a37a841ad2d5ebfbdafe2e0593d3c1b2ea4&ipo=images",  },
       { id: 3, name: 'airpods', description: 'Noise-cancelling headphones apple', price: 200, inStock: false, category: 'Accessories',img:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uHaqRdiMzWSMCR2LzsmhtQHaEZ%26pid%3DApi&f=1&ipt=e228d45eafd08f05dfd60a9e5e6f9a37a841ad2d5ebfbdafe2e0593d3c1b2ea4&ipo=images",  },
@@ -15,7 +15,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 5, name: 'Desk', description: 'Standing desk', price: 300, category: 'Furniture',img:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.9E-fIHcrGWe-wKsgbIq0WgHaHa%26pid%3DApi&f=1&ipt=3c39671916972a5e87344d9c12b6fb0b984c5c45642b0b51479643b703b06502&ipo=images",  },
       { id: 6, name: 'Monitor', description: '4K monitor', price: 400, inStock: true, category: 'Electronics',img:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.appS1ik7pDxKvMGQa7bWtQHaF0%26pid%3DApi&f=1&ipt=0105cbf8226ba011754f4bd70be42fafc1fa8a09f3ab474e1b31cd96136efeaf&ipo=images",  }
     ];
-    return { contentList };
+    return { products };
   }
 }
 
