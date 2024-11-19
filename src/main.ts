@@ -9,7 +9,11 @@ ModifyListComponent
 
 const routes: Routes = [
   {path:'', component: ContentListComponent},
-  { path: 'product', component: ContentListComponent },
+  {
+    path: 'product',
+    loadChildren: () =>
+      import('./app/content-list/content-list.component').then((m) => m.ContentListComponent),
+  },
   { path: 'modify/:id', component: ModifyListComponent },
   { path: '**', component: ProductNotFoundComponent },
 ];
