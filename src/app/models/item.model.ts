@@ -6,4 +6,5 @@ export interface Item {
     inStock?: boolean;  
     category: string;
     img?:string;
+    listed?:Date
   }
