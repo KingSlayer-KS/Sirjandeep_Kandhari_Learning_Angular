@@ -3,13 +3,14 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { ContentService } from '../services/content-list-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Item } from '../models/item.model';
+import { HighlightOnFocusDirective } from '../directives/highlight-on-focus.directive';
 
 @Component({
   selector: 'app-modify',
   standalone: true,
   imports: [
     FormsModule,
-
+    HighlightOnFocusDirective,
     ReactiveFormsModule
   ],
   templateUrl: './modify-list.component.html',
