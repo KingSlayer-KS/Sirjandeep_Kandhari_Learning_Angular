@@ -9,7 +9,7 @@
     @for (item of contentList; track item){
        
     @if (item.id%2==0) {
-    <div>
+    <div class="border bg-red-100 p-4 rounded-lg shadow-md">
         <app-content-list-item [contentItem]=item (delete)="onDelete($event)"></app-content-list-item>
     </div>
     }
