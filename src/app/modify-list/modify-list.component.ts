@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCard } from '@angular/material/card';
 
 @Component({
   selector: 'app-modify',
@@ -22,6 +23,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatInputModule,
     MatCheckboxModule,
     MatTooltipModule,
+    MatCard
   ],
   templateUrl: './modify-list.component.html',
   styleUrls: ['./modify-list.component.css']
