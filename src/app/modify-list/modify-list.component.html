@@ -1,55 +1,50 @@
 <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" class="space-y-4">
   <!-- Display error message -->
   @if(errorMessage){
-  <div class="text-red-500">{{ errorMessage }}</div>
+  <mat-card class="text-red-500 p-4">
+      {{ errorMessage }}
+  </mat-card>
   }
 
-
   <!-- ID Field -->
-  <div>
-    <label for="id" class="block text-gray-700 font-medium mb-2">ID</label>
-    <input type="number" id="id" formControlName="id" class="w-full border border-gray-300 p-2 rounded-md" />
-    @if(itemForm.get('id')?.invalid && itemForm.get('id')?.touched){
-    <div class="text-red-500">
-      ID is required and must be a positive number.
-    </div>}
-  </div>
+  <mat-form-field appearance="fill">
+      <mat-label>ID</mat-label>
+      <input matInput type="number" id="id" formControlName="id" />
+      @if(itemForm.get('id')?.invalid && itemForm.get('id')?.touched){
+      <mat-error>ID is required and must be a positive number.</mat-error>}
+  </mat-form-field>
 
   <!-- Name Field -->
-  <div>
-    <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-    <input type="text" id="name"  [appHighlightOnFocus]="'yellow'" formControlName="name" class="w-full border border-gray-300 p-2 rounded-md" />
-    @if(itemForm.get('name')?.invalid && itemForm.get('name')?.touched) { 
-      <div class="text-red-500">
-      Name is required and must not contain special characters.
-    </div>}
-  </div>
+  <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" id="name" [appHighlightOnFocus]="'yellow'" formControlName="name" />
+      @if(itemForm.get('name')?.invalid && itemForm.get('name')?.touched) {
+      <mat-error>Name is required and must not contain special characters.</mat-error>}
+  </mat-form-field>
 
   <!-- Description Field -->
-  <div>
-    <label for="description"   class="block text-gray-700 font-medium mb-2">Description</label>
-    <textarea id="description" [appHighlightOnFocus]="'pink'" formControlName="description" rows="3"
-      class="w-full border border-gray-300 p-2 rounded-md"></textarea>
-  </div>
+  <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput id="description" [appHighlightOnFocus]="'pink'" formControlName="description" rows="3"></textarea>
+  </mat-form-field>
 
   <!-- Price Field -->
-  <div>
-    <label for="price" class="block text-gray-700 font-medium mb-2" >Price</label>
-    <input type="number" id="price" [appHighlightOnFocus]="'pink'" formControlName="price" class="w-full border border-gray-300 p-2 rounded-md" />
-  </div>
+  <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" id="price" [appHighlightOnFocus]="'pink'" formControlName="price" />
+  </mat-form-field>
 
   <!-- Category Field -->
-  <div>
-    <label for="category" class="block text-gray-700 font-medium mb-2" >Category</label>
-    <input type="text" id="category"  [appHighlightOnFocus]="'yellow'" formControlName="category" class="w-full border border-gray-300 p-2 rounded-md" />
-  </div>
+  <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <input matInput type="text" id="category" [appHighlightOnFocus]="'yellow'" formControlName="category" />
+  </mat-form-field>
 
   <!-- In Stock Checkbox -->
-  <div class="flex items-center">
-    <label for="inStock" class="text-gray-700 font-medium mr-2">In Stock</label>
-    <input type="checkbox" id="inStock" formControlName="inStock" class="rounded" />
-  </div>
+  <mat-checkbox formControlName="inStock" class="mt-2">In Stock</mat-checkbox>
 
   <!-- Submit Button -->
-  <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded mt-4">Save</button>
+  <button type="submit" mat-raised-button color="primary" class="w-full mt-4">
+      Save
+  </button>
 </form>

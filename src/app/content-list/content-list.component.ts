@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from '../models/item.model';
 import { ContentService } from '../services/content-list-service.service';
 import { ContentListItemComponent } from '../content-list-item/content-list-item.component';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-content-list',
   standalone: true,
-  imports: [ContentListItemComponent],
+  imports: [ContentListItemComponent, 
+    MatCardModule,
+   ],
   templateUrl: './content-list.component.html',
   styleUrls: ['./content-list.component.css']
 })

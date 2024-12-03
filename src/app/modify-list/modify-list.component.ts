@@ -4,6 +4,11 @@ import { ContentService } from '../services/content-list-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Item } from '../models/item.model';
 import { HighlightOnFocusDirective } from '../directives/highlight-on-focus.directive';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-modify',
@@ -11,7 +16,12 @@ import { HighlightOnFocusDirective } from '../directives/highlight-on-focus.dire
   imports: [
     FormsModule,
     HighlightOnFocusDirective,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatTooltipModule,
   ],
   templateUrl: './modify-list.component.html',
   styleUrls: ['./modify-list.component.css']

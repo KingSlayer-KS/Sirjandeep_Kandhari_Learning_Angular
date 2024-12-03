@@ -6,11 +6,23 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { ContentListItemComponent } from './content-list-item/content-list-item.component'; 
 import { ContentService } from './services/content-list-service.service'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule,ContentListComponent, ContentListItemComponent,ReactiveFormsModule],
+  imports: [RouterOutlet, CommonModule,ContentListComponent, ContentListItemComponent,ReactiveFormsModule, 
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatTooltipModule,],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
